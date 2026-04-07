@@ -29,12 +29,10 @@ pub fn render_layout(
                 ""
             },
         ),
-        None => format!(
-            r#"<div class="auth-links">
+        None => r#"<div class="auth-links">
                 <a href="/login" class="btn btn-outline btn-sm">Sign In</a>
                 <a href="/register" class="btn btn-primary btn-sm">Get Started</a>
-            </div>"#
-        ),
+            </div>"#.to_string(),
     };
 
     let flash_html = match flash {

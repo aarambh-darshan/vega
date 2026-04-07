@@ -168,10 +168,7 @@ impl SegmentKind {
 
     /// Returns `true` if this segment contributes a URL path component.
     pub fn has_url_segment(&self) -> bool {
-        matches!(
-            self,
-            Self::Static(_) | Self::Dynamic(_) | Self::CatchAll(_)
-        )
+        matches!(self, Self::Static(_) | Self::Dynamic(_) | Self::CatchAll(_))
     }
 }
 
@@ -375,7 +372,10 @@ mod tests {
     #[test]
     fn segment_display() {
         assert_eq!(SegmentKind::Dynamic("slug".into()).to_string(), "[slug]");
-        assert_eq!(SegmentKind::CatchAll("path".into()).to_string(), "[...path]");
+        assert_eq!(
+            SegmentKind::CatchAll("path".into()).to_string(),
+            "[...path]"
+        );
         assert_eq!(SegmentKind::Group("auth".into()).to_string(), "(auth)");
     }
 
@@ -417,6 +417,9 @@ mod tests {
 
     #[test]
     fn html_escape_works() {
-        assert_eq!(html_escape("<b>\"hi\"</b>"), "&lt;b&gt;&quot;hi&quot;&lt;/b&gt;");
+        assert_eq!(
+            html_escape("<b>\"hi\"</b>"),
+            "&lt;b&gt;&quot;hi&quot;&lt;/b&gt;"
+        );
     }
 }

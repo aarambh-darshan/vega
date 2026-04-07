@@ -11,7 +11,7 @@ pub fn render(state: &AppState, query: &BlogQuery) -> String {
     let per_page = query.per_page.unwrap_or(6);
     let current_page = query.page.unwrap_or(1).max(1);
     let total = posts.len();
-    let total_pages = (total + per_page - 1) / per_page;
+    let total_pages = total.div_ceil(per_page);
     let start = (current_page - 1) * per_page;
     let page_posts = posts.into_iter().skip(start).take(per_page);
 

@@ -45,10 +45,10 @@ vega dev
 ```toml
 # Cargo.toml
 [dependencies]
-vega = { version = "0.9", features = ["ssr"] }
+vega = { git = "https://github.com/aarambh-darshan/vega.git", branch = "main", features = ["ssr"] }
 
 [build-dependencies]
-vega-router = "0.9"
+vega-router = { git = "https://github.com/aarambh-darshan/vega.git", branch = "main" }
 ```
 
 ### Project Structure

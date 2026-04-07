@@ -6,7 +6,7 @@ pub fn IndexPage() -> &'static str {
 }
 
 pub async fn handler(_req: Request) -> Html<String> {
-    Html(format!(
+    Html(
         r#"<!doctype html>
 <html lang="en">
 <head>
@@ -17,6 +17,6 @@ pub async fn handler(_req: Request) -> Html<String> {
 <body>
     <h1>Welcome to Vega 🚀</h1>
 </body>
-</html>"#
-    ))
+</html>"#.to_string()
+    )
 }

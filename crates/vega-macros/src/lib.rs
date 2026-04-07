@@ -266,7 +266,7 @@ fn parse_middleware_only(attr: TokenStream) -> syn::Result<Vec<String>> {
     }
 
     let metas = Punctuated::<Meta, Token![,]>::parse_terminated.parse2(attr.into())?;
-    for meta in metas {
+    if let Some(meta) = metas.into_iter().next() {
         let Meta::NameValue(value) = meta else {
             return Err(syn::Error::new_spanned(meta, "invalid API macro argument"));
         };

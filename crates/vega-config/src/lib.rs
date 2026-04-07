@@ -15,7 +15,7 @@ pub enum ConfigError {
     Parse(#[from] toml::de::Error),
 }
 
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone, Deserialize, Default)]
 pub struct VegaConfig {
     #[serde(default)]
     pub app: AppConfig,
@@ -31,21 +31,6 @@ pub struct VegaConfig {
     pub ssg: SsgConfig,
     pub database: Option<DatabaseConfig>,
     pub auth: Option<AuthConfig>,
-}
-
-impl Default for VegaConfig {
-    fn default() -> Self {
-        Self {
-            app: AppConfig::default(),
-            server: ServerConfig::default(),
-            build: BuildConfig::default(),
-            features: FeatureConfig::default(),
-            ssr: SsrConfig::default(),
-            ssg: SsgConfig::default(),
-            database: None,
-            auth: None,
-        }
-    }
 }
 
 impl VegaConfig {
@@ -114,7 +99,7 @@ impl Default for BuildConfig {
     }
 }
 
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone, Deserialize, Default)]
 pub struct FeatureConfig {
     #[serde(default)]
     pub tailwind: bool,
@@ -122,16 +107,6 @@ pub struct FeatureConfig {
     pub compress: bool,
     #[serde(default)]
     pub source_maps: bool,
-}
-
-impl Default for FeatureConfig {
-    fn default() -> Self {
-        Self {
-            tailwind: false,
-            compress: false,
-            source_maps: false,
-        }
-    }
 }
 
 #[derive(Debug, Clone, Deserialize)]

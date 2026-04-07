@@ -523,7 +523,7 @@ pub fn clear_session_cookie(secure: bool) -> String {
 /// Basic auth middleware that checks for a `vega_session` cookie.
 pub async fn require_auth(req: Request<Body>, next: Next) -> Response {
     let cookies = parse_cookie_map(req.headers());
-    if cookies.get("vega_session").is_none() {
+    if !cookies.contains_key("vega_session") {
         return ApiResponse::status_json(
             StatusCode::UNAUTHORIZED,
             json!({ "error": "authentication required" }),
@@ -741,7 +741,7 @@ pub fn build_router_with_api_router(manifest: RouteManifest, api_router: Option<
         )
         .layer(TraceLayer::new_for_http())
         .layer(PropagateRequestIdLayer::x_request_id())
-        .layer(SetRequestIdLayer::x_request_id(MakeRequestUuid::default()));
+        .layer(SetRequestIdLayer::x_request_id(MakeRequestUuid));
 
     for api_entry in &shared_manifest.api {
         let axum_path = to_axum_path(&api_entry.route_path);
