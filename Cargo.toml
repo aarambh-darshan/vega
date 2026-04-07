@@ -1,0 +1,53 @@
+[workspace]
+members = [
+  "crates/vega",
+  "crates/vega-core",
+  "crates/vega-config",
+  "crates/vega-router",
+  "crates/vega-macros",
+  "crates/vega-server",
+  "crates/vega-client",
+  "crates/vega-fetch",
+  "crates/vega-cli",
+  "examples/blog-auth-demo",
+  "examples/demo",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.9.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["Darshan <AarambhDevHub>"]
+repository = "https://github.com/AarambhDevHub/vega"
+homepage = "https://github.com/AarambhDevHub/vega"
+rust-version = "1.75"
+publish = false
+
+[workspace.dependencies]
+anyhow = "1"
+thiserror = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_urlencoded = "0.7"
+url = "2"
+toml = "0.8"
+walkdir = "2"
+quote = "1"
+syn = { version = "2", features = ["full", "extra-traits"] }
+proc-macro2 = "1"
+axum = "0.8"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "fs", "process", "time", "signal"] }
+tower = { version = "0.5", features = ["limit"] }
+tower-http = { version = "0.6", features = ["trace", "cors", "compression-br", "compression-gzip", "request-id", "set-header", "fs"] }
+clap = { version = "4", features = ["derive"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["fmt", "env-filter"] }
+notify = "6"
+futures = "0.3"
+async-trait = "0.1"
+tempfile = "3"
+assert_cmd = "2"
+predicates = "3"
+once_cell = "1"
+uuid = { version = "1", features = ["v4", "serde"] }

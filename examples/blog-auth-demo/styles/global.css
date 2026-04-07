@@ -1,0 +1,12 @@
+:root {
+  --bg: #f8faf9;
+  --text: #1a2b22;
+}
+
+body {
+  margin: 0;
+  padding: 2rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Iosevka Aile", "Fira Sans", sans-serif;
+}

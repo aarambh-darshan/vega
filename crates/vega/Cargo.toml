@@ -1,0 +1,25 @@
+[package]
+name = "vega"
+description = "A Next.js-inspired full-stack web framework for Rust — file-based routing, SSR, API routes, zero-config"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+publish.workspace = true
+keywords = ["web-framework", "ssr", "file-routing", "axum", "full-stack"]
+categories = ["web-programming::http-server", "web-programming"]
+
+[features]
+default = []
+ssr = ["vega-fetch/ssr", "vega-core/ssr"]
+
+[dependencies]
+vega-core = { path = "../vega-core" }
+vega-config = { path = "../vega-config" }
+vega-router = { path = "../vega-router" }
+vega-macros = { path = "../vega-macros" }
+vega-server = { path = "../vega-server" }
+vega-client = { path = "../vega-client" }
+vega-fetch = { path = "../vega-fetch" }

@@ -1,0 +1,19 @@
+[package]
+name = "vega-router"
+description = "File-based route scanner and compile-time codegen for the Vega web framework"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+thiserror.workspace = true
+walkdir.workspace = true
+serde.workspace = true
+vega-core = { path = "../vega-core" }
+
+[dev-dependencies]
+tempfile.workspace = true

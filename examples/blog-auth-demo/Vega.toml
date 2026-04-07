@@ -1,0 +1,25 @@
+[app]
+name = "blog-auth-demo"
+base_url = "http://localhost:3000"
+
+[server]
+host = "127.0.0.1"
+port = 3000
+
+[build]
+out_dir = "dist"
+public_dir = "public"
+
+[features]
+tailwind = false
+compress = false
+source_maps = true
+
+[ssr]
+streaming = true
+
+[ssg]
+concurrent = 4
+
+[auth]
+provider = "in-memory"

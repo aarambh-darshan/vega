@@ -1,0 +1,25 @@
+[package]
+name = "vega-fetch"
+description = "Data fetching, typed params, and search param utilities for the Vega web framework"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[features]
+default = []
+ssr = []
+
+[dependencies]
+thiserror.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+serde_urlencoded.workspace = true
+url.workspace = true
+futures.workspace = true
+vega-core = { path = "../vega-core" }
+
+[dev-dependencies]
+tokio.workspace = true
