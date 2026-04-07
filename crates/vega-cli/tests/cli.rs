@@ -7,7 +7,7 @@ fn generate_page_creates_file() {
     let temp = tempfile::tempdir().expect("tempdir");
     fs::create_dir_all(temp.path().join("pages")).expect("mkdir pages");
 
-    let mut cmd = Command::cargo_bin("vega-cli").expect("bin");
+    let mut cmd = Command::cargo_bin("vega").expect("bin");
     cmd.args([
         "generate",
         "page",
@@ -32,7 +32,7 @@ fn routes_prints_discovered_paths() {
     )
     .expect("write api");
 
-    let mut cmd = Command::cargo_bin("vega-cli").expect("bin");
+    let mut cmd = Command::cargo_bin("vega").expect("bin");
     cmd.args(["routes", "--path", temp.path().to_str().expect("path")]);
     cmd.assert()
         .success()
